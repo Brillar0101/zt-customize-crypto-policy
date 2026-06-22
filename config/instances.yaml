@@ -12,7 +12,7 @@ virtualmachines:
         value: "bastions"
     networks:
       - default
-    packages:
-      - httpd
-      - mod_ssl
+    # packages:
+    # - httpd
+    # - mod_ssl
 
