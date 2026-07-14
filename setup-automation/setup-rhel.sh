@@ -13,6 +13,7 @@ systemctl --now enable httpd
 update-crypto-policies --set FUTURE
 
 # fix ssh issue
-echo "KexAlgorithms +curve25519-sha256,ecdh-sha2-nistp256,ecdh-sha2-nistp384" >> /etc/ssh/sshd_config
-systemctl restart sshd
+echo "key_exchange = +ECDHE-ECDSA +ECDHE-RSA +DHE-RSA" > /etc/crypto-policies/policies/modules/LABFIX.pmod
+echo "group = +X25519 +SECP256R1 +SECP384R1 +FFDHE-2048" >> /etc/crypto-policies/policies/modules/LABFIX.pmod
+update-crypto-policies --set FUTURE:LABFIX
 
